@@ -8,87 +8,60 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          },
-          {
-            "group": "User Guide",
-            "pages": [
-              "user-facing/lauderbaugh-syscribe"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+    "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/introduction",
+        "getting-started/how-it-works",
+        "getting-started/quickstart",
+        "getting-started/core-concepts"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/github",
+        "integrations/notion",
+        "integrations/mintlify",
+        "integrations/github-pages",
+        "integrations/coming-soon"
+      ]
+    },
+    {
+      "group": "Configuration",
+      "pages": [
+        "configuration/doc-types",
+        "configuration/agent-directions",
+        "configuration/approval-routing",
+        "configuration/deployment-targets"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/authentication",
+        "api-reference/repos",
+        "api-reference/drafts",
+        "api-reference/deployments",
+        "api-reference/knowledge-graph"
+      ]
+    },
+    {
+      "group": "MCP Server",
+      "pages": [
+        "mcp-server/installation",
+        "mcp-server/available-tools",
+        "mcp-server/authentication"
+      ]
+    },
+    {
+      "group": "Changelog",
+      "pages": [
+        "changelog/index"
       ]
     }
-  },
+  ]
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
