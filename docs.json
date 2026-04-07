@@ -1,67 +1,74 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Syscribe",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
-    "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "getting-started/introduction",
-        "getting-started/how-it-works",
-        "getting-started/quickstart",
-        "getting-started/core-concepts"
-      ]
-    },
-    {
-      "group": "Integrations",
-      "pages": [
-        "integrations/github",
-        "integrations/notion",
-        "integrations/mintlify",
-        "integrations/github-pages",
-        "integrations/coming-soon"
-      ]
-    },
-    {
-      "group": "Configuration",
-      "pages": [
-        "configuration/doc-types",
-        "configuration/agent-directions",
-        "configuration/approval-routing",
-        "configuration/deployment-targets"
-      ]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "api-reference/authentication",
-        "api-reference/repos",
-        "api-reference/drafts",
-        "api-reference/deployments",
-        "api-reference/knowledge-graph"
-      ]
-    },
-    {
-      "group": "MCP Server",
-      "pages": [
-        "mcp-server/installation",
-        "mcp-server/available-tools",
-        "mcp-server/authentication"
-      ]
-    },
-    {
-      "group": "Changelog",
-      "pages": [
-        "changelog/index"
-      ]
-    }
-  ],
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/introduction",
+              "getting-started/how-it-works",
+              "getting-started/quickstart",
+              "getting-started/core-concepts"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/github",
+              "integrations/notion",
+              "integrations/mintlify",
+              "integrations/github-pages",
+              "integrations/coming-soon"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/doc-types",
+              "configuration/agent-directions",
+              "configuration/approval-routing",
+              "configuration/deployment-targets"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/authentication",
+              "api-reference/repos",
+              "api-reference/drafts",
+              "api-reference/deployments",
+              "api-reference/knowledge-graph"
+            ]
+          },
+          {
+            "group": "MCP Server",
+            "pages": [
+              "mcp-server/installation",
+              "mcp-server/available-tools",
+              "mcp-server/authentication"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/index"
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
@@ -70,32 +77,19 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:hello@syscribe.ai"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://syscribe.ai"
     }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/syscribe",
+      "github": "https://github.com/lauderbaugh"
     }
   }
 }
