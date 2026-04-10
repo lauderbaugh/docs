@@ -86,7 +86,8 @@
               "getting-started/quickstart",
               "getting-started/core-concepts",
               "integrations/github",
-              "integrations/notion"
+              "integrations/notion",
+              "configuration/doc-types"
             ]
           }
         ]
