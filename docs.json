@@ -68,7 +68,25 @@
           {
             "group": "User Guide",
             "pages": [
-              "configuration/deployment-targets"
+              "configuration/deployment-targets",
+              "integrations/github-pages",
+              "integrations/coming-soon",
+              "configuration/agent-directions",
+              "configuration/approval-routing",
+              "api-reference/drafts",
+              "api-reference/deployments",
+              "api-reference/knowledge-graph",
+              "mcp-server/installation",
+              "mcp-server/available-tools",
+              "mcp-server/authentication",
+              "api-reference/authentication",
+              "api-reference/repos",
+              "getting-started/introduction",
+              "getting-started/how-it-works",
+              "getting-started/quickstart",
+              "getting-started/core-concepts",
+              "integrations/github",
+              "integrations/notion"
             ]
           }
         ]
