@@ -64,6 +64,12 @@
             "pages": [
               "changelog/index"
             ]
+          },
+          {
+            "group": "User Guide",
+            "pages": [
+              "configuration/deployment-targets"
+            ]
           }
         ]
       }
