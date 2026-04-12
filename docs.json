@@ -69,7 +69,8 @@
           {
             "group": "User Guide",
             "pages": [
-              "documentation-drafts/managing-drafts"
+              "documentation-drafts/managing-drafts",
+              "documentation-drafts/bulk-deploy"
             ]
           }
         ]
