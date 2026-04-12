@@ -76,7 +76,8 @@
             "group": "User Guide",
             "pages": [
               "documentation-drafts/managing-drafts",
-              "documentation-drafts/bulk-deploy"
+              "documentation-drafts/bulk-deploy",
+              "documentation-drafts/draft-statuses"
             ]
           }
         ]
