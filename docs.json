@@ -30,7 +30,8 @@
               "integrations/mintlify",
               "integrations/github-pages",
               "integrations/coming-soon",
-              "integrations/mintlify/navigation"
+              "integrations/mintlify/navigation",
+              "integrations/mintlify/force-redeploy"
             ]
           },
           {
