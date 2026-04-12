@@ -78,7 +78,8 @@
               "documentation-drafts/managing-drafts",
               "documentation-drafts/bulk-deploy",
               "documentation-drafts/draft-statuses",
-              "documentation-drafts/proposed-sections"
+              "documentation-drafts/proposed-sections",
+              "documentation-drafts/approve-and-deploy"
             ]
           }
         ]
