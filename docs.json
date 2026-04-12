@@ -32,7 +32,8 @@
               "integrations/coming-soon",
               "integrations/mintlify/navigation",
               "integrations/mintlify/force-redeploy",
-              "integrations/mintlify/bulk-push"
+              "integrations/mintlify/bulk-push",
+              "integrations/mintlify/file-path-resolution"
             ]
           },
           {
