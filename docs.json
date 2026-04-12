@@ -86,7 +86,8 @@
               "documentation-drafts/history",
               "documentation-drafts/agent-interaction",
               "documentation-drafts/bulk-actions",
-              "documentation-drafts/agent-revision"
+              "documentation-drafts/agent-revision",
+              "documentation-drafts/deploy-pipeline"
             ]
           }
         ]
