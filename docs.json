@@ -29,7 +29,8 @@
               "integrations/notion",
               "integrations/mintlify",
               "integrations/github-pages",
-              "integrations/coming-soon"
+              "integrations/coming-soon",
+              "integrations/mintlify/navigation"
             ]
           },
           {
