@@ -46,7 +46,8 @@
               "configuration/doc-types",
               "configuration/agent-directions",
               "configuration/approval-routing",
-              "configuration/deployment-targets"
+              "configuration/deployment-targets",
+              "configuration/appearance"
             ]
           },
           {
