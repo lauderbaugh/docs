@@ -1,0 +1,153 @@
+# Connecting Mintlify
+
+Syscribe integrates with Mintlify by writing directly to the GitHub repository that powers your Mintlify site. When a draft is approved, Syscribe commits updated `.mdx` files to your configured branch — Mintlify's GitHub App picks up the changes and rebuilds your site automatically.
+
+This guide walks you through connecting a Mintlify site to Syscribe and explains the constraints that govern how the integration works.
+
+---
+
+## Before you start
+
+You will need:
+
+- A Mintlify site connected to a GitHub repository (GitHub Enterprise is also supported)
+- Admin access to that GitHub repository
+- A Syscribe account with at least one repo connected
+
+Mintlify's web editor commits directly to the same GitHub repository — Syscribe and Mintlify's editor coexist without conflict, as long as you are not editing the same file simultaneously.
+
+---
+
+## How Syscribe writes to Mintlify
+
+Syscribe uses your GitHub repository as the write path — not Mintlify's own API. This means:
+
+- **No Mintlify Pro plan required.** The integration works on any Mintlify plan.
+- **All changes go through GitHub.** Syscribe commits `.mdx` files to your configured branch using a GitHub token you provide. Mintlify's GitHub App detects the commit and triggers a rebuild.
+- **Syscribe manages its own sections within each file.** It does not overwrite content it didn't write. Each section Syscribe owns is defined by an `##` heading — content between two headings is one section. Syscribe replaces only the sections assigned to it, leaving everything else untouched.
+
+---
+
+## Step 1 — Identify your Mintlify repository
+
+Your Mintlify site is backed by a GitHub repository. If you are not sure which repository it is:
+
+1. Open your Mintlify dashboard
+2. Go to **Settings → GitHub**
+3. The connected repository name is shown there (e.g. `your-org/docs`)
+
+Note the repository name, the branch Mintlify is reading from (usually `main`), and the path within the repository where your docs live (usually the repo root, but some teams use a subdirectory like `docs/`).
+
+---
+
+## Step 2 — Create a GitHub personal access token
+
+Syscribe needs a GitHub token to commit `.mdx` files to your docs repository.
+
+1. Go to [github.com/settings/tokens](https://github.com/settings/tokens) and click **Generate new token (classic)**
+2. Give it a descriptive name: `Syscribe — docs`
+3. Set expiration to **No expiration** (or your organisation's preferred policy — note you will need to rotate this token in Syscribe when it expires)
+4. Under **Scopes**, select:
+   - `repo` — full control of private repositories (required to read and write files)
+5. Click **Generate token** and copy the token — you will not be able to see it again
+
+If your docs repository is public, you can use a fine-grained personal access token scoped to that specific repository with **Contents: Read and write** permission only. This is the more secure option for public repos.
+
+---
+
+## Step 3 — Connect the target in Syscribe
+
+1. In Syscribe, go to **Repos** and select the repo you want to connect
+2. Under **Doc types**, find the doc type you want to route to Mintlify (typically `USER_FACING`)
+3. Click **Configure target** and select **Mintlify**
+4. Fill in the following fields:
+
+| Field | Value | Example |
+|---|---|---|
+| **Repository** | The GitHub repo backing your Mintlify site, in `owner/repo` format | `your-org/docs` |
+| **Branch** | The branch Mintlify reads from | `main` |
+| **Base path** | The subdirectory within the repo where your docs live. Leave blank if docs are at the repo root | `docs` |
+| **GitHub token** | The personal access token you created in Step 2 | `ghp_...` |
+
+5. Click **Save**
+
+Syscribe will immediately attempt to read your `docs.json` file (the Mintlify navigation config) to verify the connection. If the connection fails, check that the repository name, branch, and token are correct and that the token has `repo` scope.
+
+---
+
+## Step 4 — Onboarding crawl
+
+When you save the target configuration for the first time, Syscribe crawls your Mintlify repository to build its initial understanding of your documentation structure.
+
+**What the crawl does:**
+
+- Reads `docs.json` to understand your navigation hierarchy — tabs, groups, and pages
+- Fetches the content of each `.mdx` file listed in navigation
+- Infers what each page is about and maps it to a doc type
+- Builds the initial knowledge graph: a structured map of every section, what code it relates to, and how fresh it is
+
+**What you see:**
+
+The Syscribe UI shows crawl progress. When complete, you are taken to the **Documentation landscape** review screen, which shows every page and section Syscribe discovered, how it categorised each one, and any issues it flagged (pages with very little content, pages it could not confidently categorise, etc.).
+
+Review the landscape, correct any miscategorisations, and click **Confirm**. This becomes the baseline Syscribe works from — it will never restructure or reorder confirmed sections without your explicit action.
+
+**If your Mintlify site has no content yet:**
+
+Syscribe detects this and offers to propose a documentation skeleton instead — an ordered set of sections appropriate for your doc type. You review and adjust the skeleton, confirm it, and Syscribe scaffolds stub `.mdx` files in your repository. From that point, each PR fills in the skeleton surgically.
+
+---
+
+## Constraints and known limitations
+
+### Navigation must be defined in `docs.json`
+
+Syscribe reads your navigation structure from `docs.json` (the current Mintlify config format, formerly `mint.json`). Pages that exist as `.mdx` files in the repository but are **not listed in `docs.json`** are invisible to Syscribe — it does not scan the directory structure independently.
+
+If you have hidden pages (files not in navigation), Syscribe will not discover or manage them.
+
+### Section boundaries are `##` headings
+
+Syscribe's unit of ownership within an `.mdx` file is one `##` (H2) section — the heading and all content beneath it until the next `##` heading or end of file. This means:
+
+- Each section Syscribe manages maps to exactly one `##` heading
+- Syscribe will not split or merge sections on its own
+- Content between two `##` headings is treated as atomic — Syscribe replaces it entirely when updating that section
+- `#` (H1) headings are treated as page titles and are never modified by Syscribe
+- `###` and deeper headings are part of the section content and are managed as a unit with their parent `##`
+
+**Implication for your docs:** If you want Syscribe to manage a specific topic, it should have its own `##` heading. A page with no `##` headings is a single undivided section — Syscribe will manage the entire page body as one unit.
+
+### One file per page
+
+Mintlify's navigation maps one `.mdx` file to one page. Syscribe respects this — it does not split a single page into multiple files or merge files together.
+
+### Simultaneous deployments use atomic nav updates
+
+When multiple sections are approved and deployed at the same time, Syscribe batches all `docs.json` navigation changes into a single commit to prevent race conditions. Individual section file commits happen sequentially; the nav update happens once at the end.
+
+If a deploy partially fails (some sections succeed, some fail), the `docs.json` nav update covers only the sections that successfully committed. Failed sections can be retried from the PR review page.
+
+### Token rotation
+
+When your GitHub personal access token expires, deployments to Mintlify will begin failing. Syscribe surfaces this as a deployment error in the activity log. To recover: generate a new token, go to the target configuration in Syscribe, and update the token field.
+
+### Mintlify rebuilds take 1–3 minutes
+
+After Syscribe commits to your repository, Mintlify's GitHub App triggers a rebuild. The rebuild typically completes in 1–3 minutes. Syscribe marks the deployment as complete when the GitHub commit succeeds — not when the Mintlify rebuild finishes. Check your Mintlify dashboard if content does not appear immediately.
+
+---
+
+## Verifying the integration
+
+After your first successful deployment:
+
+1. Go to your Mintlify site and navigate to the section Syscribe updated
+2. Confirm the content matches what you approved in Syscribe
+3. Check your GitHub repository — you should see a recent commit from the GitHub account associated with your token, with a commit message referencing the PR number
+
+If the content is not appearing:
+
+- Check the Mintlify dashboard for build errors
+- Check the GitHub repository for the commit — if it is not there, the deployment failed before the GitHub write (check the Syscribe activity log)
+- Verify your `docs.json` lists the page Syscribe is trying to update — if the page is not in navigation, it may be committed but not visible

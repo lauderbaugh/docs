@@ -32,6 +32,7 @@
               "integrations/mintlify",
               "integrations/github-pages",
               "integrations/coming-soon",
+              "integrations/mintlify/mintlify-setup.mdx",
               "integrations/mintlify/navigation",
               "integrations/mintlify/force-redeploy",
               "integrations/mintlify/bulk-push",
