@@ -95,7 +95,8 @@
               "documentation-drafts/agent-revisions",
               "documentation-drafts/diff-view",
               "documentation-drafts/not-applicable-drafts",
-              "documentation-drafts/bootstrapping"
+              "documentation-drafts/bootstrapping",
+              "documentation-drafts/pr-history"
             ]
           }
         ]
