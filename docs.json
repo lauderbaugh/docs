@@ -94,7 +94,8 @@
               "documentation-drafts/deploy-pipeline",
               "documentation-drafts/agent-revisions",
               "documentation-drafts/diff-view",
-              "documentation-drafts/not-applicable-drafts"
+              "documentation-drafts/not-applicable-drafts",
+              "documentation-drafts/bootstrapping"
             ]
           }
         ]
