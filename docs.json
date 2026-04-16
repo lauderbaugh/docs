@@ -96,7 +96,8 @@
               "documentation-drafts/diff-view",
               "documentation-drafts/not-applicable-drafts",
               "documentation-drafts/bootstrapping",
-              "documentation-drafts/pr-history"
+              "documentation-drafts/pr-history",
+              "documentation-drafts/regenerating-drafts"
             ]
           }
         ]
