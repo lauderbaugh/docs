@@ -98,7 +98,8 @@
               "documentation-drafts/bootstrapping",
               "documentation-drafts/pr-history",
               "documentation-drafts/regenerating-drafts",
-              "documentation-drafts/draft-editor"
+              "documentation-drafts/draft-editor",
+              "documentation-drafts/reject-drafts"
             ]
           }
         ]
