@@ -1,0 +1,39 @@
+---
+title: "Onboarding a Repository"
+---
+
+## Onboarding a Repository
+
+When you connect a new repository, the system runs an onboarding flow that sets up the documentation structure before any drafts are generated. Onboarding creates a skeleton of documentation nodes that maps to the sections in your chosen deployment target.
+
+### How Onboarding Works
+
+1.  The system proposes a documentation skeleton — a tree of pages and sections — based on your doc type and deployment target.
+    
+2.  You review the proposed skeleton, optionally excluding pages you do not want to track.
+    
+3.  You confirm the skeleton. The system creates the corresponding nodes in Notion (if configured) and stubs out the pages in your deployment target.
+    
+
+### Reviewing the Proposed Skeleton
+
+The skeleton proposal screen shows every page the system plans to create, grouped by top-level page and sub-section. Each page has a checkbox — deselect any page you want to exclude from tracking. Excluded pages are not created in Notion or your deployment target and will not receive generated drafts.
+
+After you finish reviewing, select **Confirm** to save the skeleton and begin onboarding.
+
+### Onboarding Statuses
+
+While onboarding runs, the repository settings panel shows the current status. Onboarding moves through the following states:
+
+-   **Awaiting skeleton** — the system is waiting for you to confirm the proposed skeleton.
+    
+-   **Awaiting confirmation** — the skeleton has been submitted and is being processed.
+    
+-   **Complete** — onboarding finished successfully. The repository is ready to generate drafts.
+    
+-   **Failed** — onboarding encountered an error. Check the error message and retry.
+    
+
+### Rediscovering an Existing Structure
+
+If your deployment target already contains documentation, you can run a rediscovery instead of building a skeleton from scratch. Rediscovery reads your existing content structure — for example, the pages listed in a Mintlify `docs.json` — and proposes it as the skeleton. You review and confirm the proposal just as you would a freshly generated skeleton.
