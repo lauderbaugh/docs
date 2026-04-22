@@ -102,7 +102,8 @@
               "documentation-drafts/pr-history",
               "documentation-drafts/regenerating-drafts",
               "documentation-drafts/draft-editor",
-              "documentation-drafts/reject-drafts"
+              "documentation-drafts/reject-drafts",
+              "documentation-drafts/commit-event-source"
             ]
           }
         ]
