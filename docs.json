@@ -41,7 +41,8 @@
               "integrations/mintlify/file-path-resolution",
               "integrations/mintlify/mdx-format",
               "integrations/mintlify/rediscovery",
-              "integrations/notion-sync"
+              "integrations/notion-sync",
+              "integrations/notion/crawling"
             ]
           },
           {
