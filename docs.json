@@ -110,7 +110,8 @@
               "documentation-drafts/deploy-modes",
               "documentation-drafts/doc-type-filtering",
               "documentation-drafts/force-redeploy",
-              "documentation-drafts/reject-actions"
+              "documentation-drafts/reject-actions",
+              "documentation-drafts/proposal-parent-change"
             ]
           }
         ]
