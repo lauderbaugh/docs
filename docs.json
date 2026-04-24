@@ -109,7 +109,8 @@
               "documentation-drafts/section-tree",
               "documentation-drafts/deploy-modes",
               "documentation-drafts/doc-type-filtering",
-              "documentation-drafts/force-redeploy"
+              "documentation-drafts/force-redeploy",
+              "documentation-drafts/reject-actions"
             ]
           }
         ]
