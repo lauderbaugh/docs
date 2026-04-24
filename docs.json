@@ -106,7 +106,8 @@
               "documentation-drafts/reject-drafts",
               "documentation-drafts/commit-event-source",
               "documentation-drafts/realtime-connection",
-              "documentation-drafts/section-tree"
+              "documentation-drafts/section-tree",
+              "documentation-drafts/deploy-modes"
             ]
           }
         ]
