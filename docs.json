@@ -104,7 +104,8 @@
               "documentation-drafts/regenerating-drafts",
               "documentation-drafts/draft-editor",
               "documentation-drafts/reject-drafts",
-              "documentation-drafts/commit-event-source"
+              "documentation-drafts/commit-event-source",
+              "documentation-drafts/realtime-connection"
             ]
           }
         ]
